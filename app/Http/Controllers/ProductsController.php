@@ -39,11 +39,15 @@ class ProductsController extends Controller
     {
         $product = new Product();
         $product->name = $request->name;
-        $product->description = $request->description;
-        $product->img = $request->img;
+        $product->description = $request->description; 
         $product->price = $request->price;
         $product->count = $request->count;
-
+        if(!$request->hasFile('image')){return 0;}
+        $file = $request->file('image');
+        $fileName = $file->getClientOriginalName();
+        $destinationPath = public_path().'/images' ;
+        $file->move($destinationPath,$fileName);
+        $product->img = $fileName;
         if(!($product->save())) {
             throw new HttpException(500, "Something went wrong!");
         }
