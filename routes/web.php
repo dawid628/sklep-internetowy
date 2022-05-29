@@ -22,3 +22,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/create', [ProductsController::class, 'create'])->name('createproduct');
 Route::get('/show/{id}', [ProductsController::class, 'show'])->name('showproduct');
 Route::post('/store', [ProductsController::class, 'store'])->name('storeproduct');
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');

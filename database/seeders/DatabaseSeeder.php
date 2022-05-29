@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         // $role->name = 'user';
         // $role->save();
 
-             //admin account
+        //    //  admin account
         // $user = new User();
         // $user->name = 'admin';
         // $user->email = 'admin@admin.pl';
