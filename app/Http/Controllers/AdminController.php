@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Http\Controllers\HttpException;
+use App\Models\User;
 
-class ProductsController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('index', ['products' => $products]);
+        return view('admin.index');
     }
 
     /**
@@ -24,9 +23,16 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function allproducts()
     {
-        return view('create');
+        $products = Product::all();
+        return view('admin.products', ['products' => $products]);
+    }
+
+    public function users()
+    {
+        $users = User::all();
+        return view('admin.users', ['users' => $users]);
     }
 
     /**
@@ -37,21 +43,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Product();
-        $product->name = $request->name;
-        $product->description = $request->description; 
-        $product->price = $request->price;
-        $product->count = $request->count;
-        if(!$request->hasFile('image')){return 0;}
-        $file = $request->file('image');
-        $fileName = $file->getClientOriginalName();
-        $destinationPath = public_path().'/images' ;
-        $file->move($destinationPath,$fileName);
-        $product->img = $fileName;
-        if(!($product->save())) {
-            throw new HttpException(500, "Something went wrong!");
-        }
-        return redirect()->route('createproduct')->with('message', 'Created succesfully');
+        //
     }
 
     /**
@@ -62,12 +54,7 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        if(!Product::find($id)){
-            return redirect()->route('index');
-        }
-        $product = Product::find($id);
-        
-        return view('show', ['product' => $product]);
+        //
     }
 
     /**
@@ -99,10 +86,10 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyuser($id)
     {
-        if(Product::find($id)){
-            Product::destroy($id);
+        if(User::find($id)){
+            User::destroy($id);
         }
         
         return redirect()->back();
