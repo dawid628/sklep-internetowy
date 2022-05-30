@@ -37,7 +37,6 @@
                         @if(Auth::check())
                         <a class="btn btn-outline-dark" href="{{ route('showcart') }}">
                             <i class="bi-cart-fill me-1"></i>Koszyk
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </a> 
                         @endif
                         <ul class="navbar-nav ms-auto">
@@ -61,6 +60,7 @@
                                     </a>
     
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/profil/{{ Auth::user()->id }}">Profil</a>
                                         <a class="dropdown-item" href="/logout">Wyloguj
                                         </a>
     

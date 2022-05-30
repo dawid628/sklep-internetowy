@@ -20,6 +20,8 @@ Route::get('/', [ProductsController::class, 'index'])->name('index');
 
 Auth::routes();
 
+Route::get('/profil/{id}', [App\Http\Controllers\UserController::class, 'show'])->name('profil');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/create', [ProductsController::class, 'create'])->name('createproduct');
 Route::get('/show/{id}', [ProductsController::class, 'show'])->name('showproduct');

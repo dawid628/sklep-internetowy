@@ -5,6 +5,7 @@
         {{ $item['product'] }}
         <button class="btn btn-outline-dark">X</button>
     </form> 
+    @endforeach
     <table class="table">
   <thead>
     <tr>
@@ -27,7 +28,6 @@
       <td>Thornton</td>
       <td><a href="#">Usuń</a></td>
     </tr>
-    <!-- {{ route('destroyproduct', $product->id) }} -->
     <tr>
       <th scope="row">3</th>
       <td>Larry</td>
@@ -36,5 +36,4 @@
     </tr>
   </tbody>
 </table>
-    @endforeach
 @endsection
