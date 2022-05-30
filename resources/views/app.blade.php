@@ -35,11 +35,10 @@
                     </ul>
                     <form class="d-flex">
                         @if(Auth::check())
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Koszyk
+                        <a class="btn btn-outline-dark" href="{{ route('showcart') }}">
+                            <i class="bi-cart-fill me-1"></i>Koszyk
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
+                        </a> 
                         @endif
                         <ul class="navbar-nav ms-auto">
                             <!-- Authentication Links -->

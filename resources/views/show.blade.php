@@ -9,7 +9,7 @@
                     <!-- Featured blog post-->
                     <a class="btn btn-outline-dark mt-auto" href="{{ route('index') }}">Powrót</a>
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
                         <div class="card-body">
                             <h2 class="card-title">{{$product->name}}</h2>
                             <p class="card-subtitle">{{$product->price}}PLN</p>

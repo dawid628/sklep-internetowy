@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,14 @@ Route::get('/show/{id}', [ProductsController::class, 'show'])->name('showproduct
 Route::post('/store', [ProductsController::class, 'store'])->name('storeproduct');
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-//admin
+// admin
 Route::get('/panel', [AdminController::class, 'index'])->name('panel');
 Route::get('/products', [AdminController::class, 'allproducts'])->name('admin.products');
 Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
 Route::get('/destroyproduct/{id}', [ProductsController::class, 'destroy'])->name('destroyproduct');
 Route::get('/destroyuser/{id}', [AdminController::class, 'destroyuser'])->name('destroyuser');
+
+// koszyk
+Route::get('/cartshow', [CartController::class, 'index'])->name('showcart');
+Route::post('/cartadd', [CartController::class, 'add'])->name('addcart');
+Route::get('destroy/{id}', [CartController::class, 'destroy'])->name('destroycart');

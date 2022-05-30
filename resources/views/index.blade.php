@@ -19,9 +19,13 @@
                                 </div>
                             </div>
                             <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Do koszyka</a></div>
-                            </div>
+                            <form method="POST" action="{{ route('addcart', ['id' => $product->id]) }}">
+                                @csrf
+                                <input name="id" value="{{ $product->id }}" type="hidden"/>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-outline-dark mt-auto">Do koszyka</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     @endforeach
