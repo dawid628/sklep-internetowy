@@ -1,39 +1,27 @@
 @extends('app')
 @section('content')
-    @foreach ($cart as $item)
-    <form method="" action="{{ route('destroycart', ['id' => $item->id]) }}">
-        {{ $item['product'] }}
-        <button class="btn btn-outline-dark">X</button>
-    </form> 
-    @endforeach
-    <table class="table">
+<table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nazwa produktu</th>
+      <th scope="col">Numer produktu</th>
+      <th scope="col">Nazwa</th>
       <th scope="col">Cena</th>
-      <th scope="col">Opcje</th>
+      <th scope="col">Akcje</th>
     </tr>
-  </thead>
-  <tbody>
+  </thead>    
+  @php ($i = 1)
+@foreach ($cart as $item)
+<tbody>
+    @foreach ($item->product as $prod)
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td><a href="#">Usuń</a></td>
+      <th scope="row">{{ $i }}</th>
+      <td>{{$prod->name}}</td>
+      <td>{{$prod->price}}</td>
+      <td><a class="btn btn-secondary"href="/destroy/{{$item->id}}">X</a></td>
+      @php ($i++)
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td><a href="#">Usuń</a></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td><a href="#">Usuń</a></td>
-    </tr>
-  </tbody>
+    @endforeach     
+  </tbody> 
+@endforeach
 </table>
 @endsection

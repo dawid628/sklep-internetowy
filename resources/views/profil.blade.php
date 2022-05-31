@@ -2,21 +2,26 @@
 @section('content')
         <!-- Section-->
         <section class="py-5">
-        {{ $user->name }}
-        {{ $user->email }}
-        <form>
+        <form action="{{ route('updateprofile') }}" method="POST">
+        {{ csrf_field() }}
   <div class="form-group">
-    <label for="exampleFormControlInput1">Name</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="wpisz nowa nazwe">
+    <label >Nazwa</label>
+    <input name="name" class="form-control" id="exampleFormControlInput1" value="{{ $user->name }}">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1">Email</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="wpisz nowy email">
+    <label >Email</label>
+    <input name="email" class="form-control" id="exampleFormControlInput1" value="{{ $user->email }}">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label>Data dołączenia do serwisu</label>
+    <input class="form-control" id="exampleFormControlInput1" value="{{ $user->created_at }}" disabled>
   </div>
+  <div class="form-group">
+    <label >Ostatnia aktulizacja profilu</label>
+    <input class="form-control" id="exampleFormControlInput1" value="{{ $user->updated_at }}" disabled>
+  </div>
+  <br>
+  <button class="btn btn-outline-dark" type="submit">Zapisz</button>
 </form>
         </section>
      @endsection

@@ -16,4 +16,16 @@ class UserController extends Controller
         }
         return redirect("/");
     }
+
+    public function store(Request $request){
+
+        if(User::find($request->user()->id)){
+        
+            $user = User::find($request->user()->id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->save();
+        }
+        return redirect()->back();
+    }
 }
