@@ -14,7 +14,6 @@
             <th scope="col">NAZWA</th>
             <th scope="col">EMAIL</th>
             <th scope="col">DATA DOLACZENIA</th>
-            <th scope="col">OPCJE</th>
           </tr>
         </thead>
         <tbody>
@@ -23,8 +22,7 @@
             <th scope="row">{{ $user->id }}</th>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
-            <td>{{ $user->created_at }}</td>
-            <td><a href="{{ route('destroyuser', ['id' => $user->id]) }}">Usun</a></td>
+            <td>{{ $user->created_at }}</td>  
           </tr>
           @endforeach
         </tbody>
