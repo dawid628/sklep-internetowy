@@ -24,4 +24,5 @@
   </tbody> 
 @endforeach
 </table>
+<button class="btn btn-secondary">Do kasy</button>
 @endsection
