@@ -55,6 +55,8 @@
                                         </a>
                                     @endif
                                     <a class="dropdown-item" href="/profil/{{ Auth::user()->id }}">Profil</a>
+                                    <a class="dropdown-item" href="/orders/{{ Auth::user()->id }}">Historia zamowien
+                                    </a>
                                         <a class="dropdown-item" href="/logout">Wyloguj
                                         </a>
     

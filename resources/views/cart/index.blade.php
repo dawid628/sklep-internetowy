@@ -24,5 +24,7 @@
   </tbody> 
 @endforeach
 </table>
-<button class="btn btn-secondary">Do kasy</button>
+<form action="{{ route('storeorder') }}">
+  <button type="sumbit">Zamowienie</button>  
+</form>
 @endsection
